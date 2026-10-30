@@ -1,7 +1,7 @@
 create table if not exists public.factory_records (
   id uuid primary key,
   user_id uuid not null default auth.uid() references auth.users (id) on delete cascade,
-  type text not null check (type in ('daily', 'hazira', 'payment', 'loading', 'debt', 'stock', 'monthly')),
+  type text not null check (type in ('daily', 'labor', 'hazira', 'payment', 'loading', 'debt', 'stock', 'monthly')),
   date date not null,
   payload jsonb not null,
   created_at timestamptz not null default now(),
